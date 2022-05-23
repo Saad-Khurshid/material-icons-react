@@ -2,6 +2,11 @@
 
 [![Build Status](https://semaphoreci.com/api/v1/logtrace/material-icons-react/branches/master/shields_badge.svg)](https://semaphoreci.com/logtrace/material-icons-react)
 
+
+## NOTE: Version 1.0.5 release
+
+* Fix for [#52] (https://github.com/logtrace/material-icons-react/issues/52)
+
 ## NOTE: Version 1.0.4 release
 
 * Demo app updated

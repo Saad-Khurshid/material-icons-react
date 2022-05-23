@@ -43,7 +43,7 @@ class MaterialIcon extends Component {
 
     onFontActive(fontFamily, fvd) {
         const {icon, styleOverride, clsName, ...other} = this.processProps();
-        if(this._isMounted)
+        if (this._isMounted)
             this.setState({element: <i {...other} className={clsName} style={styleOverride} >{icon}</i>})
     }
 
