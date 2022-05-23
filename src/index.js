@@ -8,9 +8,10 @@ import { sizes, light, dark, mdInactive } from './config/mappings';
 class MaterialIcon extends Component {
     constructor(props) {
         super(props);
-
+        
         const {preloader} = this.props;
         
+        this._isMounted = false;
         this.state = {
             element: preloader
         }
@@ -28,12 +29,22 @@ class MaterialIcon extends Component {
     }
 
     componentDidMount() {
+        this._isMounted = true;
+    }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.icon !== this.props.icon)
+            this.onFontActive();
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     onFontActive(fontFamily, fvd) {
         const {icon, styleOverride, clsName, ...other} = this.processProps();
-        this.setState({element: <i {...other} className={clsName} style={styleOverride} >{icon}</i>})
+        if(this._isMounted)
+            this.setState({element: <i {...other} className={clsName} style={styleOverride} >{icon}</i>})
     }
 
     processProps() {
